@@ -13,7 +13,7 @@ struct SearchView: View {
     
     //MARK: Computed properties
     var body: some View {
-        List(foundMovies){ currentMovie in
+        List(foundMovies, id: \.self){ currentMovie in
             VStack{
                 Text(currentMovie.title)
                     .bold()
