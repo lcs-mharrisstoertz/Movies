@@ -27,6 +27,7 @@ struct MovieDetailView: View {
                 if let currentMovie = currentMovie{
                     Text("Movie title: \(currentMovie.title)")
                         .font(.title)
+                        .bold()
                         .multilineTextAlignment(.center)
                     
                     
