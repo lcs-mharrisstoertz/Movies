@@ -11,8 +11,21 @@ import SwiftUI
 struct MoviesApp: App {
     var body: some Scene {
         WindowGroup {
-            MovieDetailView()
-                .environment(\.blackbirdDatabase, AppDatabase.instance)
+//            MovieDetailView()
+//                .environment(\.blackbirdDatabase, AppDatabase.instance)
+            
+            TabView{
+                MovieDetailView()
+                    .tabItem{
+                        Label("New", systemImage: "carrot")
+                    }
+                FavouritesView()
+                    .tabItem{
+                        Label("Watch List", systemImage: "face.smiling")
+                    }
+            }
+            
+            .environment(\.blackbirdDatabase, AppDatabase.instance)
         }
     }
 }
