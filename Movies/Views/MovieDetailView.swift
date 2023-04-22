@@ -4,13 +4,14 @@
 //
 //  Created by Morgan Harris-Stoertz on 2023-04-20.
 //
-
+import Blackbird
 import SwiftUI
 
 struct MovieDetailView: View {
     
     //MARK: stored properties
     
+    @Environment(\.blackbirdDatabase) var db: Blackbird.Database?
     @State var movieInfoOpacity = 0.0
     @State var currentMovie: Movie?
    
