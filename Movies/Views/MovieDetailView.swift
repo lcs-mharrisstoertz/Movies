@@ -33,6 +33,17 @@ struct MovieDetailView: View {
                             .multilineTextAlignment(.center)
                         
                         RemoteImageView(urlOfImageToShow: movieToShow.poster)
+                            .scaledToFit()
+                            .frame(width: 50)
+                    }
+                    
+                    HStack{
+                        Text(currentMovie.director)
+                            .font(.title3)
+                            .italic()
+                        Text(currentMovie.rated)
+                            .font(.title3)
+                            .bold()
                     }
                    
                     
