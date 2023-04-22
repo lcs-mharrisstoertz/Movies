@@ -16,17 +16,21 @@ struct FavouritesView: View {
     
     //MARK: computed properties
     var body: some View {
-        List(favouriteMovies.results){currentMovie in
-            VStack(alignment: .leading){
-                Text(currentMovie.title)
-                    .bold()
-                HStack{
-                    Text(currentMovie.director)
-                    Text(currentMovie.rated)
+        NavigationView{
+            List(favouriteMovies.results){currentMovie in
+                VStack(alignment: .leading){
+                    Text(currentMovie.title)
+                        .bold()
+                    HStack{
+                        Text(currentMovie.director)
+                        Text(currentMovie.rated)
+                    }
+                   
                 }
-               
             }
+            .navigationTitle("Movies to Watch")
         }
+      
     }
 }
 
