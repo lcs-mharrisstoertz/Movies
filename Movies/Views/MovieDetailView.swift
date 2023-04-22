@@ -14,6 +14,7 @@ struct MovieDetailView: View {
     @Environment(\.blackbirdDatabase) var db: Blackbird.Database?
     @State var movieInfoOpacity = 0.0
     @State var currentMovie: Movie?
+    @State var savedToDatabase = false
    
     
     //MARK: computed properties
@@ -65,12 +66,15 @@ struct MovieDetailView: View {
                                                    currentMovie.director,
                                                    currentMovie.poster,
                                                    currentMovie.imdbRating)
+                                    
+                                    savedToDatabase = true
                                 }
                             }
                         }
                     }, label: {
                         Text("Add to Watch List")
                     })
+                    .disabled(savedToDatabase == true ? true : false)
                     .tint(.green)
                     .buttonStyle(.borderedProminent)
                 }
