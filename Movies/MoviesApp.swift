@@ -17,7 +17,7 @@ struct MoviesApp: App {
             TabView{
                 MovieDetailView()
                     .tabItem{
-                        Label("New", systemImage: "carrot")
+                        Label("New", systemImage: "videoprojector.fill")
                     }
                 FavouritesView()
                     .tabItem{

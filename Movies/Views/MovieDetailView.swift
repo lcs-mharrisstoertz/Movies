@@ -81,8 +81,10 @@ struct MovieDetailView: View {
             .navigationTitle("Movie Suggestion")
         }
         
-        .task{
-            currentMovie = await NetworkService.fetch()
+        .task {
+            if currentMovie == nil {
+                currentMovie = await NetworkService.fetch()
+            }
         }
         
     }
