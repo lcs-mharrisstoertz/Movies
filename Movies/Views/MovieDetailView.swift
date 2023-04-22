@@ -10,17 +10,31 @@ import SwiftUI
 struct MovieDetailView: View {
     
     //MARK: stored properties
-    @State var currentMovie = exampleMovie
+    @State var currentMovie = Movie?
+   
     
     //MARK: computed properties
     var body: some View {
         NavigationView{
             VStack{
-                Text(currentMovie.title)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
+                
+                if let currentMovie = currentMovie{
+                    Text(currentMovie.title)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                } else {
+                    ProgressView()
+                }
+                
+                
+                
+              
             }
             .navigationTitle("Movie Suggestion")
+        }
+        
+        .task{
+            currentMovie = await NetworkService.fetch()
         }
     }
 }
