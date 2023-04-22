@@ -38,38 +38,44 @@ struct MovieDetailView: View {
                 
                Spacer()
                 
-                Button(action: {
-                    movieInfoOpacity = 0.0
+                HStack{
+                    Button(action: {
+                        movieInfoOpacity = 0.0
 
-                    Task {
-                        withAnimation {
-                            currentMovie = nil
+                        Task {
+                            withAnimation {
+                                currentMovie = nil
+                            }
+                            currentMovie = await NetworkService.fetch()
                         }
-                        currentMovie = await NetworkService.fetch()
-                    }
-                }, label: {
-                    Text("Fetch another one")
-                })
-                .disabled(movieInfoOpacity == 0.0 ? true : false)
-                .buttonStyle(.borderedProminent)
-                
-                Button(action: {
-                    Task{
-                        if let currentMovie = currentMovie {
-                            try await db!.transaction{ core in
-                                try core.query("INSERT INTO Movie (title, year, rated, director, poster, imdbRating) VALUES (?, ?, ?, ?, ?, ?)",
-                                               currentMovie.title,
-                                               currentMovie.year,
-                                               currentMovie.rated,
-                                               currentMovie.director,
-                                               currentMovie.poster,
-                                               currentMovie.imdbRating)
+                    }, label: {
+                        Text("Generate New Movie")
+                    })
+                    .disabled(movieInfoOpacity == 0.0 ? true : false)
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button(action: {
+                        Task{
+                            if let currentMovie = currentMovie {
+                                try await db!.transaction{ core in
+                                    try core.query("INSERT INTO Movie (title, year, rated, director, poster, imdbRating) VALUES (?, ?, ?, ?, ?, ?)",
+                                                   currentMovie.title,
+                                                   currentMovie.year,
+                                                   currentMovie.rated,
+                                                   currentMovie.director,
+                                                   currentMovie.poster,
+                                                   currentMovie.imdbRating)
+                                }
                             }
                         }
-                    }
-                }, label: {
-                    Text("Add to Watch List")
-                })
+                    }, label: {
+                        Text("Add to Watch List")
+                    })
+                    .tint(.green)
+                    .buttonStyle(.borderedProminent)
+                }
+                
+            
               
             }
             .navigationTitle("Movie Suggestion")
