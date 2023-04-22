@@ -52,6 +52,24 @@ struct MovieDetailView: View {
                 })
                 .disabled(movieInfoOpacity == 0.0 ? true : false)
                 .buttonStyle(.borderedProminent)
+                
+                Button(action: {
+                    Task{
+                        if let currentMovie = currentMovie {
+                            try await db!.transaction{ core in
+                                try core.query("INSERT INTO Movie (title, year, rated, director, poster, imdbRating) VALUES (?, ?, ?, ?, ?, ?)",
+                                               currentMovie.title,
+                                               currentMovie.year,
+                                               currentMovie.rated,
+                                               currentMovie.director,
+                                               currentMovie.poster,
+                                               currentMovie.imdbRating)
+                            }
+                        }
+                    }
+                }, label: {
+                    Text("Add to Watch List")
+                })
               
             }
             .navigationTitle("Movie Suggestion")
@@ -67,5 +85,6 @@ struct MovieDetailView: View {
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         MovieDetailView()
+            .environment(\.blackbirdDatabase, AppDatabase.instance)
     }
 }
