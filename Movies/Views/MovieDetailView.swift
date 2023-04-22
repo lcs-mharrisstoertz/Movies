@@ -48,6 +48,7 @@ struct MovieDetailView: View {
                                 currentMovie = nil
                             }
                             currentMovie = await NetworkService.fetch()
+                            savedToDatabase = false
                         }
                     }, label: {
                         Text("Generate New Movie")
