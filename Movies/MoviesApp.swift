@@ -15,7 +15,7 @@ struct MoviesApp: App {
 //                .environment(\.blackbirdDatabase, AppDatabase.instance)
             
             TabView{
-                MovieDetailView()
+                MovieDetailView(movieToShow: exampleMovie)
                     .tabItem{
                         Label("New", systemImage: "videoprojector.fill")
                     }

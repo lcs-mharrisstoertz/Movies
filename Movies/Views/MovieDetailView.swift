@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieDetailView: View {
     
     //MARK: stored properties
-    
+    @State var movieToShow: Movie
     @Environment(\.blackbirdDatabase) var db: Blackbird.Database?
     @State var movieInfoOpacity = 0.0
     @State var currentMovie: Movie?
@@ -25,10 +25,16 @@ struct MovieDetailView: View {
                 Spacer()
                 
                 if let currentMovie = currentMovie{
-                    Text("Movie title: \(currentMovie.title)")
-                        .font(.title)
-                        .bold()
-                        .multilineTextAlignment(.center)
+                    
+                    HStack{
+                        Text("Movie title: \(currentMovie.title)")
+                            .font(.title)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                        
+                        RemoteImageView(urlOfImageToShow: movieToShow.poster)
+                    }
+                   
                     
                     
                     
@@ -98,7 +104,7 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView()
+        MovieDetailView(movieToShow: exampleMovie)
             .environment(\.blackbirdDatabase, AppDatabase.instance)
     }
 }
