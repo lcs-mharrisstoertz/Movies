@@ -12,6 +12,7 @@ struct MoviesApp: App {
     var body: some Scene {
         WindowGroup {
             MovieDetailView()
+                .environment(\.blackbirdDatabase, AppDatabase.instance)
         }
     }
 }
