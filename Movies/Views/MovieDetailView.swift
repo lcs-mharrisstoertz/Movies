@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    
+    //MARK: stored properties
+    @State var currentMovie = exampleMovie
+    
+    //MARK: computed properties
     var body: some View {
         NavigationView{
             VStack{
-                Text("Star Wars")
+                Text(currentMovie.title)
                     .font(.title)
                     .multilineTextAlignment(.center)
             }
