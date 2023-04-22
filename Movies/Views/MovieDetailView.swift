@@ -10,7 +10,9 @@ import SwiftUI
 struct MovieDetailView: View {
     
     //MARK: stored properties
-    @State var currentMovie = Movie?
+    
+    @State var movieInfoOpacity = 0.0
+    @State var currentMovie: Movie?
    
     
     //MARK: computed properties
@@ -18,16 +20,37 @@ struct MovieDetailView: View {
         NavigationView{
             VStack{
                 
+                Spacer()
+                
                 if let currentMovie = currentMovie{
-                    Text(currentMovie.title)
+                    Text("Movie title: \(currentMovie.title)")
                         .font(.title)
                         .multilineTextAlignment(.center)
+                    
+                    
+                    
+                    
                 } else {
                     ProgressView()
                 }
                 
                 
+               Spacer()
                 
+                Button(action: {
+                    movieInfoOpacity = 0.0
+
+                    Task {
+                        withAnimation {
+                            currentMovie = nil
+                        }
+                        currentMovie = await NetworkService.fetch()
+                    }
+                }, label: {
+                    Text("Fetch another one")
+                })
+                .disabled(movieInfoOpacity == 0.0 ? true : false)
+                .buttonStyle(.borderedProminent)
               
             }
             .navigationTitle("Movie Suggestion")
@@ -36,6 +59,7 @@ struct MovieDetailView: View {
         .task{
             currentMovie = await NetworkService.fetch()
         }
+        
     }
 }
 
