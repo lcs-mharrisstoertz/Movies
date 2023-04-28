@@ -18,23 +18,24 @@ import Foundation
 
 struct Movie: Codable, Hashable, BlackbirdModel {
     
-    static var primaryKey: [BlackbirdColumnKeyPath] = [\.$imbdID]
+    static var primaryKey: [BlackbirdColumnKeyPath] = [\.$imdbID]
     
     @BlackbirdColumn var Title: String
-    @BlackbirdColumn var Year: Int
+    @BlackbirdColumn var Year: String
     @BlackbirdColumn var Rated: String
     @BlackbirdColumn var Director: String
     @BlackbirdColumn var Poster: String
-    @BlackbirdColumn var imdbRating: Double
-    @BlackbirdColumn var imbdID: String
+    @BlackbirdColumn var imdbRating: String
+    @BlackbirdColumn var imdbID: String
 }
 
+//add new structure to add to database 
 
 
 let exampleMovie = Movie(Title:"Star Wars",
-                         Year: 1995,
+                         Year: "1995",
                          Rated: "pg",
                          Director: "Some director",
                          Poster: "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg",
-                         imdbRating: 5.7,
-                         imbdID: "tt0076759")
+                         imdbRating: "5.7",
+                         imdbID: "tt0076759")
