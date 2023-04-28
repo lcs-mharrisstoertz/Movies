@@ -19,11 +19,11 @@ struct FavouritesView: View {
         NavigationView{
             List(favouriteMovies.results){currentMovie in
                 VStack(alignment: .leading){
-                    Text(currentMovie.title)
+                    Text(currentMovie.Title)
                         .bold()
                     HStack{
-                        Text(currentMovie.director)
-                        Text(currentMovie.rated)
+                        Text(currentMovie.Director)
+                        Text(currentMovie.Rated)
                     }
                    
                 }

@@ -27,21 +27,21 @@ struct MovieDetailView: View {
                 if let currentMovie = currentMovie{
                     
                     HStack{
-                        Text("Movie title: \(currentMovie.title)")
+                        Text("Movie title: \(currentMovie.Title)")
                             .font(.title)
                             .bold()
                             .multilineTextAlignment(.center)
                         
-                        RemoteImageView(urlOfImageToShow: movieToShow.poster)
+                        RemoteImageView(urlOfImageToShow: movieToShow.Poster)
                             .scaledToFit()
                             .frame(width: 50)
                     }
                     
                     HStack{
-                        Text(currentMovie.director)
+                        Text(currentMovie.Director)
                             .font(.title3)
                             .italic()
-                        Text(currentMovie.rated)
+                        Text(currentMovie.Rated)
                             .font(.title3)
                             .bold()
                     }
@@ -79,11 +79,11 @@ struct MovieDetailView: View {
                             if let currentMovie = currentMovie {
                                 try await db!.transaction{ core in
                                     try core.query("INSERT INTO Movie (title, year, rated, director, poster, imdbRating) VALUES (?, ?, ?, ?, ?, ?)",
-                                                   currentMovie.title,
-                                                   currentMovie.year,
-                                                   currentMovie.rated,
-                                                   currentMovie.director,
-                                                   currentMovie.poster,
+                                                   currentMovie.Title,
+                                                   currentMovie.Year,
+                                                   currentMovie.Rated,
+                                                   currentMovie.Director,
+                                                   currentMovie.Poster,
                                                    currentMovie.imdbRating)
                                     
                                     savedToDatabase = true
