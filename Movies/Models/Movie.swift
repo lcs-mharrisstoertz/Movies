@@ -17,6 +17,9 @@ import Foundation
 //}
 
 struct Movie: Codable, Hashable, BlackbirdModel {
+    
+    static var primaryKey: [BlackbirdColumnKeyPath] = [\.$imbdID]
+    
     @BlackbirdColumn var Title: String
     @BlackbirdColumn var Year: Int
     @BlackbirdColumn var Rated: String
