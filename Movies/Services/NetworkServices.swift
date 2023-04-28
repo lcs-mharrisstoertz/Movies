@@ -61,7 +61,7 @@ struct NetworkService {
             print("----")
             
             // Show the detailed error to help with debugging
-            print(error.localizedDescription)
+            print(error)
             return nil
             
         }
