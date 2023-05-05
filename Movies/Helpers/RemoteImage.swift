@@ -26,6 +26,9 @@ struct RemoteImageView: View {
             AsyncImage(url: url,
                        content: { downloadedImage in
                 downloadedImage
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
             },
                        placeholder: {
                 ProgressView()
@@ -50,6 +53,7 @@ struct RemoteImageView_Previews: PreviewProvider {
         
         // Good URL example
         RemoteImageView(urlOfImageToShow: "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg")
+
 
         // Bad URL example
         RemoteImageView(urlOfImageToShow: "")

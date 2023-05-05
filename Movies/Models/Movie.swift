@@ -29,7 +29,7 @@ struct Movie: Codable, Hashable, BlackbirdModel {
     @BlackbirdColumn var imdbID: String
 }
 
-//add new structure to add to database 
+//add new structure to add to database
 
 
 let exampleMovie = Movie(Title:"Star Wars",

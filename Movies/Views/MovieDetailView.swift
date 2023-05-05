@@ -33,8 +33,7 @@ struct MovieDetailView: View {
                             .multilineTextAlignment(.center)
                         
                         RemoteImageView(urlOfImageToShow: movieToShow.Poster)
-                            .scaledToFit()
-                            .frame(width: 50)
+                            
                     }
                     
                     HStack{
