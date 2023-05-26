@@ -25,25 +25,33 @@ struct MovieDetailView: View {
                 Spacer()
                 
                 if let currentMovie = currentMovie{
-                    
-                    HStack{
-                        Text("Movie title: \(currentMovie.Title)")
-                            .font(.title)
-                            .bold()
-                            .multilineTextAlignment(.center)
-                        
-                        RemoteImageView(urlOfImageToShow: movieToShow.Poster)
+                   
                             
-                    }
+                        VStack{
+                           
+                                Text("Movie title: \(currentMovie.Title)")
+                                .foregroundColor(.white)
+                                    .font(.title)
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                
+                                RemoteImageView(urlOfImageToShow: currentMovie.Poster)
+                            HStack{
+                                Text(currentMovie.Director)
+                                    .foregroundColor(.red)
+                                    .font(.title3)
+                                    .italic()
+                                    .bold()
+                                Text(currentMovie.Rated)
+                                    .foregroundColor(.white)
+                                    .font(.title3)
+                                    .bold()
+                            }
+                               
+                        }
+                        .padding()
+                        .background(Color.black)
                     
-                    HStack{
-                        Text(currentMovie.Director)
-                            .font(.title3)
-                            .italic()
-                        Text(currentMovie.Rated)
-                            .font(.title3)
-                            .bold()
-                    }
                    
                     
                     
@@ -64,26 +72,26 @@ struct MovieDetailView: View {
                             withAnimation {
                                 currentMovie = nil
                             }
-                            currentMovie = await NetworkService.fetch()
+                            currentMovie = await NetworkService.fetch(resultsFor: "Jaws")
                             savedToDatabase = false
                         }
                     }, label: {
-                        Text("Generate New Movie")
+                        Text("Search For Movie")
                     })
-                    .disabled(movieInfoOpacity == 0.0 ? true : false)
                     .buttonStyle(.borderedProminent)
                     
                     Button(action: {
                         Task{
                             if let currentMovie = currentMovie {
                                 try await db!.transaction{ core in
-                                    try core.query("INSERT INTO Movie (title, year, rated, director, poster, imdbRating) VALUES (?, ?, ?, ?, ?, ?)",
+                                    try core.query("INSERT INTO Movie (Title, Year, Rated, Director, Poster, imdbRating, imdbID) VALUES (?, ?, ?, ?, ?, ?, ?)",
                                                    currentMovie.Title,
                                                    currentMovie.Year,
                                                    currentMovie.Rated,
                                                    currentMovie.Director,
                                                    currentMovie.Poster,
-                                                   currentMovie.imdbRating)
+                                                   currentMovie.imdbRating,
+                                                   currentMovie.imdbID)
                                     
                                     savedToDatabase = true
                                 }
@@ -105,10 +113,10 @@ struct MovieDetailView: View {
         
         .task {
             if currentMovie == nil {
-                currentMovie = await NetworkService.fetch()
+                currentMovie = await NetworkService.fetch(resultsFor: "harry potter")
+                    
             }
         }
-        
     }
 }
 

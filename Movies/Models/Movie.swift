@@ -16,7 +16,7 @@ import Foundation
 //    let imdbRating: Double
 //}
 
-struct Movie: Codable, Hashable, BlackbirdModel {
+struct Movie: Codable, Identifiable, BlackbirdModel {
     
     static var primaryKey: [BlackbirdColumnKeyPath] = [\.$imdbID]
     
