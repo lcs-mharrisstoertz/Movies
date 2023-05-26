@@ -15,6 +15,7 @@ struct MovieDetailView: View {
     @State var movieInfoOpacity = 0.0
     @State var currentMovie: Movie?
     @State var savedToDatabase = false
+    @State var input = ""
    
     
     //MARK: computed properties
@@ -26,7 +27,14 @@ struct MovieDetailView: View {
                 
                 if let currentMovie = currentMovie{
                    
-                            
+                    VStack{
+
+                            TextField("Search Movie Title",
+                                      text: $input)
+                            .multilineTextAlignment(.trailing)
+                            .font(.title)
+                            .padding()
+                       
                         VStack{
                            
                                 Text("Movie title: \(currentMovie.Title)")
@@ -51,6 +59,8 @@ struct MovieDetailView: View {
                         }
                         .padding()
                         .background(Color.black)
+                    }
+                        
                     
                    
                     
@@ -72,7 +82,9 @@ struct MovieDetailView: View {
                             withAnimation {
                                 currentMovie = nil
                             }
-                            currentMovie = await NetworkService.fetch(resultsFor: "Jaws")
+                            currentMovie = await NetworkService.fetch(resultsFor: input)
+                            //need to add an input that can change for this
+                            //get input that changes from text field
                             savedToDatabase = false
                         }
                     }, label: {
