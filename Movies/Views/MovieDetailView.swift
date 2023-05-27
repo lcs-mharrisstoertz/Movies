@@ -28,16 +28,18 @@ struct MovieDetailView: View {
                 if let currentMovie = currentMovie{
                    
                     VStack{
-
+                            
                             TextField("Search Movie Title",
                                       text: $input)
                             .multilineTextAlignment(.trailing)
-                            .font(.title)
+                            .font(.largeTitle)
                             .padding()
+                            
+                           
                        
                         VStack{
                            
-                                Text("Movie title: \(currentMovie.Title)")
+                                Text(currentMovie.Title)
                                 .foregroundColor(.white)
                                     .font(.title)
                                     .bold()
@@ -120,7 +122,7 @@ struct MovieDetailView: View {
             
               
             }
-            .navigationTitle("Movie Suggestion")
+            .navigationTitle("Movie Finder")
         }
         
         .task {
