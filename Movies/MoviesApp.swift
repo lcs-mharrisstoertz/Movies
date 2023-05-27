@@ -17,11 +17,11 @@ struct MoviesApp: App {
             TabView{
                 MovieDetailView(movieToShow: exampleMovie)
                     .tabItem{
-                        Label("New", systemImage: "videoprojector.fill")
+                        Label("Find Movies", systemImage: "videoprojector.fill")
                     }
                 FavouritesView()
                     .tabItem{
-                        Label("Watch List", systemImage: "face.smiling")
+                        Label("Watch List", systemImage: "star.fill")
                     }
             }
             

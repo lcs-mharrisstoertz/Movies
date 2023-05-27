@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct RemoteImageView: View {
+struct RemoteImageSavedMoviesView: View {
     
     // MARK: Stored properties
     
@@ -28,7 +28,7 @@ struct RemoteImageView: View {
                 downloadedImage
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 300)
+                    .frame(height: 80)
             },
                        placeholder: {
                 ProgressView()
@@ -47,7 +47,7 @@ struct RemoteImageView: View {
     
 }
 
-struct RemoteImageView_Previews: PreviewProvider {
+struct RemoteImageViewSavedMovies_Previews: PreviewProvider {
         
     static var previews: some View {
         

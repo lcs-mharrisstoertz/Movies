@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC09AD792A21890C0041DEEA /* RemoteImageSavedMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC09AD782A21890C0041DEEA /* RemoteImageSavedMovies.swift */; };
 		CC59985629F1D41E0038FC10 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC59985529F1D41E0038FC10 /* Movie.swift */; };
 		CC9EED2D29F1D8FF00CA660F /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9EED2C29F1D8FF00CA660F /* MovieDetailView.swift */; };
-		CC9EED2F29F1D97400CA660F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9EED2E29F1D97400CA660F /* SearchView.swift */; };
 		CC9EED3229F1E05900CA660F /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9EED3129F1E05900CA660F /* NetworkServices.swift */; };
 		CCAD1AB929F44AEF0062F2FB /* Blackbird in Frameworks */ = {isa = PBXBuildFile; productRef = CCAD1AB829F44AEF0062F2FB /* Blackbird */; };
 		CCAD1ABB29F44CEA0062F2FB /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = CCAD1ABA29F44CEA0062F2FB /* db.sqlite */; };
@@ -22,9 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC09AD782A21890C0041DEEA /* RemoteImageSavedMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageSavedMovies.swift; sourceTree = "<group>"; };
 		CC59985529F1D41E0038FC10 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CC9EED2C29F1D8FF00CA660F /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
-		CC9EED2E29F1D97400CA660F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CC9EED3129F1E05900CA660F /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
 		CCAD1ABA29F44CEA0062F2FB /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 		CCAD1ABD29F44F270062F2FB /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
@@ -52,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				CC9EED2C29F1D8FF00CA660F /* MovieDetailView.swift */,
-				CC9EED2E29F1D97400CA660F /* SearchView.swift */,
 				CCAD1ABF29F450E30062F2FB /* FavouritesView.swift */,
 			);
 			path = Views;
@@ -71,6 +70,7 @@
 			children = (
 				CCAD1ABD29F44F270062F2FB /* AppDatabase.swift */,
 				CCAD1AC329F4639B0062F2FB /* RemoteImage.swift */,
+				CC09AD782A21890C0041DEEA /* RemoteImageSavedMovies.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 			files = (
 				CCAD1ABE29F44F270062F2FB /* AppDatabase.swift in Sources */,
 				CC9EED3229F1E05900CA660F /* NetworkServices.swift in Sources */,
-				CC9EED2F29F1D97400CA660F /* SearchView.swift in Sources */,
 				CCAD1AC429F4639B0062F2FB /* RemoteImage.swift in Sources */,
 				CCDAFE0929F1D06D00AA2D7C /* MoviesApp.swift in Sources */,
+				CC09AD792A21890C0041DEEA /* RemoteImageSavedMovies.swift in Sources */,
 				CC9EED2D29F1D8FF00CA660F /* MovieDetailView.swift in Sources */,
 				CCAD1AC029F450E30062F2FB /* FavouritesView.swift in Sources */,
 				CC59985629F1D41E0038FC10 /* Movie.swift in Sources */,

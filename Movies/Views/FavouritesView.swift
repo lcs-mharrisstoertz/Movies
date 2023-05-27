@@ -18,15 +18,19 @@ struct FavouritesView: View {
     var body: some View {
         NavigationView{
             List(favouriteMovies.results){currentMovie in
-                VStack(alignment: .leading){
-                    Text(currentMovie.Title)
-                        .bold()
-                    HStack{
-                        Text(currentMovie.Director)
-                        Text(currentMovie.Rated)
+                
+                HStack{
+                    RemoteImageSavedMoviesView(urlOfImageToShow: currentMovie.Poster)
+                    VStack(alignment: .leading){
+                        Text(currentMovie.Title)
+                            .bold()
+                        HStack{
+                            Text(currentMovie.Director)
+                            Text(currentMovie.Rated)
+                        }
                     }
-                   
                 }
+             
             }
             .navigationTitle("Movies to Watch")
         }

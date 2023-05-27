@@ -23,17 +23,20 @@ struct MovieDetailView: View {
         NavigationView{
             VStack{
                 
-                Spacer()
                 
                 if let currentMovie = currentMovie{
                    
                     VStack{
-                            
+                        HStack{
+                            Image(systemName: "magnifyingglass")
+                                .font(.system(size: 30))
                             TextField("Search Movie Title",
                                       text: $input)
-                            .multilineTextAlignment(.trailing)
+                            .multilineTextAlignment(.leading)
                             .font(.largeTitle)
-                            .padding()
+                        }
+                        .padding()
+                           
                             
                            
                        
